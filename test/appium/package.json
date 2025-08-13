@@ -1,0 +1,26 @@
+{
+  "name": "bible-app-tests",
+  "version": "1.0.0",
+  "description": "Appium tests for Bible App",
+  "type": "module",
+  "scripts": {
+    "test": "wdio run ./wdio.conf.js",
+    "appium": "appium",
+    "doctor": "appium driver list --installed && appium doctor"
+  },
+  "devDependencies": {
+    "@wdio/cli": "^9.19.0",
+    "@wdio/local-runner": "^9.19.0",
+    "@wdio/mocha-framework": "^9.19.0",
+    "@wdio/spec-reporter": "^8.43.0",
+    "appium": "^1.22.3",
+    "chai": "^4.5.0",
+    "mocha": "^10.8.2",
+    "ts-node": "^10.9.1",
+    "webdriverio": "^9.19.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "main": "wdio.conf.js"
+}
