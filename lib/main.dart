@@ -414,32 +414,35 @@ class _BibleVersesScreenState extends State<BibleVersesScreen> with TickerProvid
                   SizedBox(height: 20),
                   
                   // Translation Selector
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.9),
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    child: DropdownButton<String>(
-                      value: _selectedTranslation,
-                      underline: SizedBox(),
-                      icon: Icon(Icons.language, color: Colors.orange[800]),
-                      style: TextStyle(
-                        color: Colors.orange[800],
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600,
+                  Semantics(
+                    label: 'translation_dropdown',
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.9),
+                        borderRadius: BorderRadius.circular(25),
                       ),
-                      isExpanded: true,
-                      items: _translations.map((BibleTranslation translation) {
-                        return DropdownMenuItem<String>(
-                          value: translation.id,
-                          child: Text(
-                            '${translation.name} (${translation.language})',
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        );
-                      }).toList(),
-                      onChanged: _onTranslationChanged,
+                      child: DropdownButton<String>(
+                        value: _selectedTranslation,
+                        underline: SizedBox(),
+                        icon: Icon(Icons.language, color: Colors.orange[800]),
+                        style: TextStyle(
+                          color: Colors.orange[800],
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        isExpanded: true,
+                        items: _translations.map((BibleTranslation translation) {
+                          return DropdownMenuItem<String>(
+                            value: translation.id,
+                            child: Text(
+                              '${translation.name} (${translation.language})',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          );
+                        }).toList(),
+                        onChanged: _onTranslationChanged,
+                      ),
                     ),
                   ),
                   
@@ -450,29 +453,32 @@ class _BibleVersesScreenState extends State<BibleVersesScreen> with TickerProvid
                     children: [
                       // Topic Selector
                       Expanded(
-                        child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                          decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.9),
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                          child: DropdownButton<String>(
-                            value: _selectedTopic,
-                            underline: SizedBox(),
-                            icon: Icon(Icons.category, color: Colors.orange[800]),
-                            style: TextStyle(
-                              color: Colors.orange[800],
-                              fontSize: 15,
-                              fontWeight: FontWeight.w600,
+                        child: Semantics(
+                          label: 'topic_dropdown',
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                            decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.9),
+                              borderRadius: BorderRadius.circular(25),
                             ),
-                            isExpanded: true,
-                            items: _topics.map((String topic) {
-                              return DropdownMenuItem<String>(
-                                value: topic,
-                                child: Text(topic),
-                              );
-                            }).toList(),
-                            onChanged: _onTopicChanged,
+                            child: DropdownButton<String>(
+                              value: _selectedTopic,
+                              underline: SizedBox(),
+                              icon: Icon(Icons.category, color: Colors.orange[800]),
+                              style: TextStyle(
+                                color: Colors.orange[800],
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              isExpanded: true,
+                              items: _topics.map((String topic) {
+                                return DropdownMenuItem<String>(
+                                  value: topic,
+                                  child: Text(topic),
+                                );
+                              }).toList(),
+                              onChanged: _onTopicChanged,
+                            ),
                           ),
                         ),
                       ),
@@ -481,32 +487,35 @@ class _BibleVersesScreenState extends State<BibleVersesScreen> with TickerProvid
                       
                       // Background Selector
                       Expanded(
-                        child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                          decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.9),
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                          child: DropdownButton<String>(
-                            value: _selectedBackground,
-                            underline: SizedBox(),
-                            icon: Icon(Icons.wallpaper, color: Colors.orange[800]),
-                            style: TextStyle(
-                              color: Colors.orange[800],
-                              fontSize: 15,
-                              fontWeight: FontWeight.w600,
+                        child: Semantics(
+                          label: 'background_dropdown',
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                            decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.9),
+                              borderRadius: BorderRadius.circular(25),
                             ),
-                            isExpanded: true,
-                            items: _backgrounds.map((BackgroundOption background) {
-                              return DropdownMenuItem<String>(
-                                value: background.id,
-                                child: Text(
-                                  background.name,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              );
-                            }).toList(),
-                            onChanged: _onBackgroundChanged,
+                            child: DropdownButton<String>(
+                              value: _selectedBackground,
+                              underline: SizedBox(),
+                              icon: Icon(Icons.wallpaper, color: Colors.orange[800]),
+                              style: TextStyle(
+                                color: Colors.orange[800],
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              isExpanded: true,
+                              items: _backgrounds.map((BackgroundOption background) {
+                                return DropdownMenuItem<String>(
+                                  value: background.id,
+                                  child: Text(
+                                    background.name,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                );
+                              }).toList(),
+                              onChanged: _onBackgroundChanged,
+                            ),
                           ),
                         ),
                       ),
@@ -604,26 +613,29 @@ class _BibleVersesScreenState extends State<BibleVersesScreen> with TickerProvid
                   
                   // Bottom Actions
                   Center(
-                    child: ElevatedButton.icon(
-                      onPressed: _isLoading ? null : _fetchRandomVerse,
-                      icon: _isLoading 
-                          ? SizedBox(
-                              width: 20,
-                              height: 20,
-                              child: CircularProgressIndicator(
-                                strokeWidth: 2,
-                                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                              ),
-                            )
-                          : Icon(Icons.refresh),
-                      label: Text(_isLoading ? 'Loading...' : 'New Verse'),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.orange[600],
-                        foregroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25),
+                    child: Semantics(
+                      label: 'new_verse_button',
+                      child: ElevatedButton.icon(
+                        onPressed: _isLoading ? null : _fetchRandomVerse,
+                        icon: _isLoading 
+                            ? SizedBox(
+                                width: 20,
+                                height: 20,
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2,
+                                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                                ),
+                              )
+                            : Icon(Icons.refresh),
+                        label: Text(_isLoading ? 'Loading...' : 'New Verse'),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.orange[600],
+                          foregroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                         ),
-                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                       ),
                     ),
                   ),

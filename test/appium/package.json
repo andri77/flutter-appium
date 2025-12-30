@@ -22,5 +22,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "main": "wdio.conf.js"
+  "main": "wdio.conf.js",
+  "dependencies": {
+    "@wdio/appium-service": "^9.19.2"
+  }
 }
